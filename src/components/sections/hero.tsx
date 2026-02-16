@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { HeroCta, CtaButton } from "./hero/hero-cta";
 
 const container = {
   hidden: { opacity: 0 },
@@ -19,6 +20,11 @@ const item = {
     transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
+
+const ctaButtons: CtaButton[] = [
+  { label: "View Projects", href: "#projects", variant: "primary", icon: ArrowRight },
+  { label: "Contact Me", href: "#contact", variant: "secondary" },
+];
 
 export function HeroSection() {
   return (
@@ -62,21 +68,7 @@ export function HeroSection() {
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div variants={item} className="flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-base font-medium text-background transition-all duration-200 hover:opacity-90 hover:gap-3"
-            >
-              View Projects
-              <ArrowRight className="h-[18px] w-[18px]" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center rounded-lg border border-white-20 px-6 py-3 text-base font-medium text-foreground transition-colors duration-200 hover:bg-white-5"
-            >
-              Contact Me
-            </a>
-          </motion.div>
+          <HeroCta buttons={ctaButtons} variants={item} />
         </motion.div>
       </div>
     </section>

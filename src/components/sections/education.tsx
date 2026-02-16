@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { GraduationCap, BookOpen } from "lucide-react";
 import { education, coursework } from "@/data/education";
+import { EducationCard } from "./education/education-card";
 
 export function EducationSection() {
   return (
@@ -25,22 +26,8 @@ export function EducationSection() {
         {/* Education Grid */}
         <div className="grid gap-8 sm:grid-cols-2">
           {/* University Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-white-5 bg-card p-8"
-          >
-            <div className="mb-6 inline-flex rounded-xl border border-white-5 bg-white-5 p-3">
-              <GraduationCap className="h-6 w-6 text-cyan" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground">
-              {education.institution}
-            </h3>
-            <p className="mt-2 text-base text-text-body">
-              {education.degree}
-            </p>
+          <EducationCard icon={GraduationCap} title={education.institution}>
+            <p className="mt-2 text-base text-text-body">{education.degree}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="rounded border border-white-5 bg-white-5 px-2.5 py-1 text-sm font-medium text-text-tag">
                 {education.gpa}
@@ -49,22 +36,10 @@ export function EducationSection() {
                 {education.period}
               </span>
             </div>
-          </motion.div>
+          </EducationCard>
 
           {/* Coursework Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-white-5 bg-card p-8"
-          >
-            <div className="mb-6 inline-flex rounded-xl border border-white-5 bg-white-5 p-3">
-              <BookOpen className="h-6 w-6 text-cyan" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground">
-              Notable Coursework
-            </h3>
+          <EducationCard icon={BookOpen} title="Notable Coursework" delay={0.1}>
             <ul className="mt-4 space-y-3">
               {coursework.map((course) => (
                 <li
@@ -76,7 +51,7 @@ export function EducationSection() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </EducationCard>
         </div>
       </div>
     </section>
