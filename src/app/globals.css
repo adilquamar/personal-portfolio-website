@@ -10,24 +10,83 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
-  /* Figma Design Tokens */
+  /* ────────────────────────────────────────────
+   * COLORS — extracted from Figma fills & strokes
+   * ──────────────────────────────────────────── */
+
+  /* Cyan accent scale */
   --color-cyan: #00d3f3;
+  --color-cyan-bright: #00b8db;
   --color-cyan-80: rgba(0, 211, 243, 0.8);
   --color-cyan-20: rgba(0, 211, 243, 0.2);
   --color-cyan-10: rgba(0, 211, 243, 0.1);
   --color-cyan-5: rgba(0, 184, 219, 0.05);
+
+  /* Amber (AWS brand) */
   --color-amber: #ff9900;
+
+  /* Dark surface scale */
   --color-dark: #121212;
   --color-dark-card: #1a1a1a;
   --color-dark-elevated: #1e1e1e;
+  --color-dark-deep: #0a0a0a;
+
+  /* White opacity scale (borders, backgrounds on dark surfaces) */
   --color-white-5: rgba(255, 255, 255, 0.05);
   --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-15: rgba(255, 255, 255, 0.15);
   --color-white-20: rgba(255, 255, 255, 0.2);
+
+  /* Text hierarchy */
   --color-text-muted: #99a1af;
   --color-text-body: #6a7282;
   --color-text-tag: #d1d5dc;
+  --color-text-faint: #4a5565;
 
-  /* Shadcn tokens */
+  /* ────────────────────────────────────────────
+   * SPACING — extracted from Figma frame gaps/paddings
+   * ──────────────────────────────────────────── */
+  --spacing-section-y: 96px;
+  --spacing-section-x: 96px;
+  --spacing-section-x-mobile: 24px;
+  --spacing-gap-hero: 32px;
+  --spacing-gap-timeline: 48px;
+  --spacing-gap-card: 16px;
+  --spacing-gap-social: 32px;
+  --spacing-gap-tag: 8px;
+  --spacing-card-padding: 32px;
+  --spacing-card-padding-sm: 24px;
+  --spacing-timeline-indent: 48px;
+  --spacing-timeline-dot: 10px;
+  --spacing-icon-sm: 14px;
+  --spacing-icon-md: 18px;
+  --spacing-icon-lg: 20px;
+  --spacing-icon-xl: 24px;
+  --spacing-icon-social: 28px;
+  --spacing-btn-h: 50px;
+  --spacing-btn-h-sm: 36px;
+  --spacing-badge-h: 26px;
+
+  /* ────────────────────────────────────────────
+   * BORDER RADIUS — extracted from Figma corner radius
+   * ──────────────────────────────────────────── */
+  --radius-card: 16px;
+  --radius-btn: 8px;
+  --radius-tag: 4px;
+  --radius-tag-pill: 9999px;
+  --radius-badge-pill: 9999px;
+  --radius-icon-container: 12px;
+
+  /* ────────────────────────────────────────────
+   * SHADOWS — extracted from Figma effects
+   * ──────────────────────────────────────────── */
+  --shadow-glow-cyan: 0 0 0 3px rgba(0, 211, 243, 0.1);
+  --shadow-glow-cyan-lg: 0 0 60px rgba(0, 211, 243, 0.15);
+  --shadow-glow-hero: 0 0 120px rgba(0, 184, 219, 0.05);
+
+  /* ────────────────────────────────────────────
+   * Shadcn tokens
+   * ──────────────────────────────────────────── */
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);

@@ -1,51 +1,78 @@
 ---
-description: Figma-derived design tokens, color system, and typography rules
-globs: "**/*.{tsx,css}"
+description: Figma-derived design tokens, color system, typography, spacing, and shadow rules
+globs: "**/*.{tsx,css},tailwind.config.ts"
 alwaysApply: false
 ---
 
 # Design Tokens
 
-All tokens are extracted from the Figma source of truth and defined in `src/app/globals.css` under `@theme inline`.
+Tokens live in two places — both are the source of truth, derived from Figma:
+
+1. **`tailwind.config.ts`** — full extended theme: colors, spacing, fontSize, borderRadius, boxShadow, blur, maxWidth, screens
+2. **`src/app/globals.css`** — CSS variables for Shadcn theming (`:root` / `.dark`) and `@theme inline` token aliases
+
+The CSS file loads the config via `@config "../../tailwind.config.ts"`.
 
 ## Color Palette
 
 | Tailwind Class | Hex / Value | Usage |
 |---|---|---|
 | `cyan` | `#00d3f3` | Primary accent, links, timeline dots, CTA buttons |
+| `cyan-bright` | `#00b8db` | "Say Hello" button variant |
 | `cyan-80` | `rgba(0,211,243,0.8)` | Date text in experience timeline |
 | `cyan-20` | `rgba(0,211,243,0.2)` | Status badge border |
 | `cyan-10` | `rgba(0,211,243,0.1)` | Status badge background |
 | `cyan-5` | `rgba(0,184,219,0.05)` | Hero background glow |
 | `amber` | `#ff9900` | AWS brand highlight only |
 | `dark` | `#121212` | Page background (dark mode) |
-| `dark-card` | `#1a1a1a` | Card surfaces (dark mode) |
-| `white-5` | `rgba(255,255,255,0.05)` | Tag/badge backgrounds, subtle hovers |
-| `white-10` | `rgba(255,255,255,0.1)` | Borders, separators |
-| `white-20` | `rgba(255,255,255,0.2)` | Button outlines, emphasized borders |
+| `dark-card` | `#1a1a1a` | Card surfaces |
+| `dark-elevated` | `#1e1e1e` | Raised surfaces |
+| `dark-deep` | `#0a0a0a` | Footer background |
+| `white-alpha-5/10/15/20` | `rgba(255,255,255,…)` | Borders, tag backgrounds, hovers |
 | `text-muted` | `#99a1af` | Secondary headings, subtitles |
 | `text-body` | `#6a7282` | Body paragraphs, descriptions |
 | `text-tag` | `#d1d5dc` | Technology tag labels |
+| `text-faint` | `#4a5565` | Copyright, least-prominent text |
 
-## Semantic Colors (Shadcn)
+## Spacing Scale (from Figma gaps/padding)
 
-Use these for theme-aware elements: `background`, `foreground`, `card`, `muted-foreground`, `border`, `destructive`, `accent`.
+| Token | Value | Figma Source |
+|---|---|---|
+| `section-y` | `96px` | Section top/bottom padding |
+| `section-x` | `96px` | Desktop horizontal padding |
+| `gap-hero` | `32px` | Hero content gap |
+| `gap-timeline` | `48px` | Experience items gap |
+| `gap-card` | `16px` | Card internal element gap |
+| `gap-social` | `32px` | Social icon spacing |
+| `card-padding` | `32px` | Card internal padding |
+| `timeline-indent` | `48px` | Timeline content indent from dot |
 
-## Typography
+## Shadows (from Figma effects)
 
-- **Font**: Inter (loaded via `next/font/google`, variable `--font-inter`)
-- **H1**: `text-5xl sm:text-6xl lg:text-[72px]`, `font-bold`, `tracking-tight`
-- **H2 (section)**: `text-3xl lg:text-4xl`, `font-bold`
-- **H2 (subtitle)**: `text-3xl sm:text-4xl lg:text-[48px]`, `font-medium`
-- **H3**: `text-xl`, `font-bold`
-- **Body**: `text-base`, `leading-relaxed`, color `text-body`
-- **Body large**: `text-lg sm:text-xl`, `leading-[32.5px]`
-- **Small/tags**: `text-xs`, `font-medium`
-- **Status badge**: `text-xs`, `font-semibold`, `uppercase`, `tracking-wider`
+| Class | Value | Usage |
+|---|---|---|
+| `shadow-glow-cyan` | `0 0 0 3px rgba(0,211,243,0.1)` | Timeline dot outer glow |
+| `shadow-glow-cyan-lg` | `0 0 60px rgba(0,211,243,0.15)` | Card hover glow |
+| `shadow-glow-hero` | `0 0 120px rgba(0,184,219,0.05)` | Hero background orb |
+
+## Typography Scale (from Figma text nodes)
+
+Use the named `fontSize` tokens from `tailwind.config.ts`:
+
+- `text-heading-1` — 72px/72px bold, -1.8px tracking
+- `text-heading-2` — 48px/48px medium
+- `text-heading-2-section` — 36px/40px bold
+- `text-heading-3` — 24px/32px bold
+- `text-heading-3-sm` — 20px/28px bold
+- `text-body-lg` — 20px/32.5px regular
+- `text-body-base` — 16px/26px regular
+- `text-body-sm` — 14px/20px medium
+- `text-tag` — 12px/16px medium
+- `text-badge` — 12px/16px semibold, 0.6px tracking
 
 ## Rules
 
-- Never use raw hex colors inline; always use the Tailwind token classes
-- The `amber` color is reserved exclusively for the "AWS" brand highlight
-- Tech tags always use: `rounded border border-white-5 bg-white-5 px-2 py-1 text-xs font-medium text-text-tag`
+- Never use raw hex colors inline; always use Tailwind token classes
+- `amber` is reserved exclusively for the "AWS" brand highlight
+- For new spacing values, add to `tailwind.config.ts` — not as arbitrary `[px]` values
 - Section headings use a cyan bar prefix: `<div className="h-[2px] w-8 bg-cyan" />`
