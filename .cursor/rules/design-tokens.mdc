@@ -1,0 +1,51 @@
+---
+description: Figma-derived design tokens, color system, and typography rules
+globs: "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# Design Tokens
+
+All tokens are extracted from the Figma source of truth and defined in `src/app/globals.css` under `@theme inline`.
+
+## Color Palette
+
+| Tailwind Class | Hex / Value | Usage |
+|---|---|---|
+| `cyan` | `#00d3f3` | Primary accent, links, timeline dots, CTA buttons |
+| `cyan-80` | `rgba(0,211,243,0.8)` | Date text in experience timeline |
+| `cyan-20` | `rgba(0,211,243,0.2)` | Status badge border |
+| `cyan-10` | `rgba(0,211,243,0.1)` | Status badge background |
+| `cyan-5` | `rgba(0,184,219,0.05)` | Hero background glow |
+| `amber` | `#ff9900` | AWS brand highlight only |
+| `dark` | `#121212` | Page background (dark mode) |
+| `dark-card` | `#1a1a1a` | Card surfaces (dark mode) |
+| `white-5` | `rgba(255,255,255,0.05)` | Tag/badge backgrounds, subtle hovers |
+| `white-10` | `rgba(255,255,255,0.1)` | Borders, separators |
+| `white-20` | `rgba(255,255,255,0.2)` | Button outlines, emphasized borders |
+| `text-muted` | `#99a1af` | Secondary headings, subtitles |
+| `text-body` | `#6a7282` | Body paragraphs, descriptions |
+| `text-tag` | `#d1d5dc` | Technology tag labels |
+
+## Semantic Colors (Shadcn)
+
+Use these for theme-aware elements: `background`, `foreground`, `card`, `muted-foreground`, `border`, `destructive`, `accent`.
+
+## Typography
+
+- **Font**: Inter (loaded via `next/font/google`, variable `--font-inter`)
+- **H1**: `text-5xl sm:text-6xl lg:text-[72px]`, `font-bold`, `tracking-tight`
+- **H2 (section)**: `text-3xl lg:text-4xl`, `font-bold`
+- **H2 (subtitle)**: `text-3xl sm:text-4xl lg:text-[48px]`, `font-medium`
+- **H3**: `text-xl`, `font-bold`
+- **Body**: `text-base`, `leading-relaxed`, color `text-body`
+- **Body large**: `text-lg sm:text-xl`, `leading-[32.5px]`
+- **Small/tags**: `text-xs`, `font-medium`
+- **Status badge**: `text-xs`, `font-semibold`, `uppercase`, `tracking-wider`
+
+## Rules
+
+- Never use raw hex colors inline; always use the Tailwind token classes
+- The `amber` color is reserved exclusively for the "AWS" brand highlight
+- Tech tags always use: `rounded border border-white-5 bg-white-5 px-2 py-1 text-xs font-medium text-text-tag`
+- Section headings use a cyan bar prefix: `<div className="h-[2px] w-8 bg-cyan" />`

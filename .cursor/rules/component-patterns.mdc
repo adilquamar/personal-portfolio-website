@@ -1,0 +1,55 @@
+---
+description: React component conventions, naming, and composition patterns
+globs: "**/*.tsx"
+alwaysApply: false
+---
+
+# Component Patterns
+
+## File Organization
+
+- **Shadcn primitives** go in `src/components/ui/` (managed by `npx shadcn add`)
+- **Page sections** go in `src/components/sections/` (one file per section)
+- **Shared components** go in `src/components/` root (navbar, footer, contact-form, theme-provider)
+- New sections should follow: export a named function, wrap in `<section>` with an `id` and `scroll-mt-20`
+
+## Component Template
+
+```tsx
+"use client";
+
+import { motion } from "framer-motion";
+import { SomeIcon } from "lucide-react";
+
+export function MySectionName() {
+  return (
+    <section id="my-section" className="py-24 scroll-mt-20">
+      <div className="mx-auto max-w-[857px] px-6 lg:px-12">
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-20 flex items-center gap-3"
+        >
+          <div className="h-[2px] w-8 bg-cyan" />
+          <h2 className="text-3xl font-bold text-foreground lg:text-4xl">
+            Section Title
+          </h2>
+        </motion.div>
+        {/* Content here */}
+      </div>
+    </section>
+  );
+}
+```
+
+## Rules
+
+- Use **named exports** (`export function Foo`), never `export default`
+- Components needing browser APIs or hooks must start with `"use client"`
+- Use `cn()` from `@/lib/utils` for conditional class merging
+- Compose classes with Tailwind utilities; avoid inline `style={}` props
+- Icons from `lucide-react` are sized with `h-X w-X` classes, not the `size` prop
+- Use Shadcn's `<Button>`, `<Input>`, `<Textarea>`, `<Label>` for form elements

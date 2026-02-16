@@ -1,0 +1,46 @@
+---
+description: Data file structure, typing conventions, and content management
+globs: "src/data/**/*.ts"
+alwaysApply: false
+---
+
+# Data Layer
+
+All portfolio content lives in `src/data/` as typed TypeScript files. No CMS or database.
+
+## File Convention
+
+Each data file exports:
+1. A TypeScript **interface** for the data shape
+2. A **const array** (or object) of the data
+
+```ts
+export interface Experience {
+  id: string;
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  technologies: string[];
+}
+
+export const experiences: Experience[] = [ ... ];
+```
+
+## Current Data Files
+
+| File | Exports | Description |
+|---|---|---|
+| `experience.ts` | `Experience`, `experiences` | Career history, most recent first |
+| `projects.ts` | `Project`, `projects` | Portfolio projects with links |
+| `education.ts` | `Education`, `Coursework`, `education`, `coursework` | Degree + notable courses |
+| `social.ts` | `SocialLink`, `socialLinks` | Social media/contact links |
+
+## Rules
+
+- Every item must have a unique `id` field (kebab-case string)
+- Arrays are ordered by recency (newest first)
+- `technologies` arrays contain 2-4 items (displayed as tags)
+- Descriptions should be 1-2 sentences, under 160 characters
+- URLs default to `"https://github.com"` or `"https://example.com"` as placeholders
+- Icon types in `social.ts` must match the `iconMap` keys in `footer.tsx` and `contact.tsx`: `"github" | "linkedin" | "twitter" | "mail"`

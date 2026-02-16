@@ -1,0 +1,51 @@
+---
+description: High-level project context, tech stack, and architecture for the portfolio website
+alwaysApply: true
+---
+
+# Project Overview
+
+Personal portfolio for a Software Engineer at AWS (API Gateway). Dark-first, single-page design with smooth animations.
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) + TypeScript |
+| Styling | Tailwind CSS v4 + Shadcn/UI (new-york style) |
+| Animations | Framer Motion |
+| Icons | Lucide React |
+| Forms | React Hook Form + Zod (via `@hookform/resolvers`) |
+| Theming | next-themes (class strategy, dark default, system-aware) |
+| Utilities | clsx + tailwind-merge via `cn()` in `src/lib/utils.ts` |
+
+## Directory Structure
+
+```
+src/
+├── app/                  # Next.js App Router (layout, page, globals.css)
+├── components/
+│   ├── ui/               # Shadcn/UI primitives (button, input, textarea, label)
+│   ├── sections/         # Page sections (hero, experience, projects, education, contact)
+│   ├── navbar.tsx         # Sticky header with mobile hamburger + theme toggle
+│   ├── footer.tsx         # Copyright + social icon links
+│   ├── contact-form.tsx   # RHF + Zod validated form
+│   └── theme-provider.tsx # next-themes wrapper
+├── data/                 # Static data as typed TypeScript arrays
+│   ├── experience.ts
+│   ├── projects.ts
+│   ├── education.ts
+│   └── social.ts
+└── lib/
+    ├── utils.ts           # cn() helper
+    └── schemas.ts         # Zod validation schemas
+```
+
+## Key Conventions
+
+- All imports use the `@/` alias (maps to `./src/*`)
+- Components use named exports, not default exports
+- Client components start with `"use client"` directive
+- Data files export both the interface and the data array
+- Content max-width is `857px` (`max-w-[857px]`), matching the Figma artboard
+- Section horizontal padding: `px-6 lg:px-12`

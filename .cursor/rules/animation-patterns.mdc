@@ -1,0 +1,57 @@
+---
+description: Framer Motion animation conventions and performance guidelines
+globs: "src/components/**/*.tsx"
+alwaysApply: false
+---
+
+# Animation Patterns
+
+All animations use Framer Motion. Keep them subtle and performant.
+
+## Scroll-Triggered Sections
+
+Every section uses `whileInView` with `once: true` to animate in on first scroll:
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-100px" }}
+  transition={{ duration: 0.5 }}
+>
+```
+
+- `margin: "-100px"` triggers 100px before entering viewport
+- `once: true` prevents re-animation on scroll back
+
+## Staggered Children (Hero Pattern)
+
+Use `variants` with `staggerChildren` for sequential reveals:
+
+```tsx
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+};
+```
+
+- Use cubic-bezier arrays instead of string names (`"easeOut"`) to satisfy TypeScript
+- Apply `variants={container}` to parent, `variants={item}` to children
+
+## Interactive Elements
+
+- **Cards**: `whileHover={{ y: -4 }}` with `transition={{ duration: 0.2 }}`
+- **Icon links**: `whileHover={{ scale: 1.1, y: -2 }}` and `whileTap={{ scale: 0.95 }}`
+- **CTA buttons**: Use CSS transitions (`transition-all duration-200`) instead of Framer for hover states
+
+## Rules
+
+- Only animate `opacity` and `transform` (y, x, scale, rotate) for GPU performance
+- Never animate `width`, `height`, or `background-color` with Framer Motion
+- Stagger delay between list items: `delay: index * 0.1` to `0.15`
+- Mobile menu uses `AnimatePresence` for mount/unmount transitions
+- Use `as const` on ease arrays to satisfy Framer Motion's TypeScript types

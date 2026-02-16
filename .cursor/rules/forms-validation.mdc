@@ -1,0 +1,54 @@
+---
+description: Form handling patterns with React Hook Form and Zod validation
+globs: "src/components/contact-form.tsx,src/lib/schemas.ts"
+alwaysApply: false
+---
+
+# Forms & Validation
+
+## Stack
+
+- **React Hook Form** for state management and submission
+- **Zod** for schema validation
+- **@hookform/resolvers** to bridge RHF + Zod
+
+## Schema Pattern
+
+Schemas live in `src/lib/schemas.ts`. Export both the schema and its inferred type:
+
+```ts
+import { z } from "zod";
+
+export const contactFormSchema = z.object({
+  name: z.string().min(2).max(100),
+  email: z.string().email(),
+  message: z.string().min(10).max(1000),
+});
+
+export type ContactFormData = z.infer<typeof contactFormSchema>;
+```
+
+## Form Component Pattern
+
+```tsx
+const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<ContactFormData>({
+  resolver: zodResolver(contactFormSchema),
+  defaultValues: { name: "", email: "", message: "" },
+});
+```
+
+## Styling Conventions
+
+- Use Shadcn `<Input>`, `<Textarea>`, `<Label>`, `<Button>` components
+- Base input classes: `border-white-10 bg-white-5 text-foreground placeholder:text-text-body/50`
+- Focus ring: `focus:border-cyan focus:ring-1 focus:ring-cyan/30`
+- Error state: add `border-destructive` conditionally via `cn()`
+- Error messages: `<p className="text-xs text-destructive">`
+- Submit button: full-width cyan with loading spinner (`Loader2`) and success state (`CheckCircle`)
+
+## Rules
+
+- Always provide `defaultValues` to avoid uncontrolled-to-controlled warnings
+- Use `zodResolver` — never validate manually in `onSubmit`
+- New form schemas go in `src/lib/schemas.ts`, not inline
+- Form components go in `src/components/`, section wrappers in `src/components/sections/`

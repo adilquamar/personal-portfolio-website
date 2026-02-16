@@ -1,0 +1,38 @@
+---
+description: Dark/light theme system and how colors adapt between modes
+globs: "src/app/globals.css,src/components/theme-provider.tsx,src/app/layout.tsx"
+alwaysApply: false
+---
+
+# Theming
+
+## Setup
+
+- **next-themes** with `attribute="class"` strategy (adds `.dark` class to `<html>`)
+- `defaultTheme="dark"` — this is a dark-first design
+- `enableSystem` allows automatic detection
+- `suppressHydrationWarning` on `<html>` prevents hydration mismatch
+
+## How It Works
+
+`globals.css` defines CSS variables in `:root` (light) and `.dark` (dark). Tailwind's `@theme inline` maps them:
+
+| Variable | Light | Dark |
+|---|---|---|
+| `--background` | `#ffffff` | `#121212` |
+| `--foreground` | `#121212` | `#ffffff` |
+| `--card` | `#ffffff` | `#1a1a1a` |
+| `--border` | `#e5e7eb` | `rgba(255,255,255,0.1)` |
+| `--muted-foreground` | `#6a7282` | `#99a1af` |
+
+## Theme-Aware vs Static Colors
+
+- **Theme-aware** (adapts): `text-foreground`, `bg-background`, `bg-card`, `border-border`, `text-muted-foreground`
+- **Static** (same in both): `text-cyan`, `bg-cyan`, `text-amber`, `text-text-body`, `bg-white-5`, `border-white-10`
+
+## Rules
+
+- Use `text-foreground` / `bg-background` for primary text/backgrounds — never hardcode `text-white` or `bg-[#121212]`
+- Use the custom tokens (`text-text-muted`, `text-text-body`, `bg-white-5`) for content that stays consistent
+- The `ThemeProvider` wrapper lives at `src/components/theme-provider.tsx` and is mounted in `layout.tsx`
+- Theme toggle button is in `navbar.tsx`; it uses `Sun`/`Moon` icons from Lucide with rotate/scale transitions
