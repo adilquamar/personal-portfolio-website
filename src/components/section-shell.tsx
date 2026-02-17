@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { fadeInUp } from "@/lib/motion";
 
 interface SectionShellProps {
   id: string;
@@ -21,10 +22,8 @@ export function SectionShell({
       <div className="mx-auto max-w-[857px] px-6 lg:px-12">
         {title && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            {...fadeInUp}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
             className="mb-12 flex items-center gap-3"
           >
             <div className="h-[2px] w-8 bg-slate-accent" />

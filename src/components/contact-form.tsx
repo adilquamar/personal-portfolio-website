@@ -18,6 +18,15 @@ import { Button } from "@/components/ui/button";
 import { contactFormSchema, type ContactFormData } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
 
+const fieldStyles = cn(
+  "border-border bg-muted text-foreground placeholder:text-muted-foreground/50",
+  "focus:border-slate-accent focus:ring-1 focus:ring-slate-accent/30"
+);
+
+function fieldClasses(hasError: boolean) {
+  return cn(fieldStyles, hasError && "border-destructive");
+}
+
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -31,7 +40,6 @@ export function ContactForm() {
   });
 
   async function onSubmit(data: ContactFormData) {
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log("Form submitted:", data);
     setIsSubmitted(true);
@@ -56,11 +64,7 @@ export function ContactForm() {
               <FormControl>
                 <Input
                   placeholder="Your name"
-                  className={cn(
-                    "border-border bg-muted text-foreground placeholder:text-muted-foreground/50",
-                    "focus:border-slate-accent focus:ring-1 focus:ring-slate-accent/30",
-                    fieldState.error && "border-destructive"
-                  )}
+                  className={fieldClasses(!!fieldState.error)}
                   {...field}
                 />
               </FormControl>
@@ -82,11 +86,7 @@ export function ContactForm() {
                 <Input
                   type="email"
                   placeholder="your@email.com"
-                  className={cn(
-                    "border-border bg-muted text-foreground placeholder:text-muted-foreground/50",
-                    "focus:border-slate-accent focus:ring-1 focus:ring-slate-accent/30",
-                    fieldState.error && "border-destructive"
-                  )}
+                  className={fieldClasses(!!fieldState.error)}
                   {...field}
                 />
               </FormControl>
@@ -109,9 +109,8 @@ export function ContactForm() {
                   placeholder="Tell me about your project..."
                   rows={5}
                   className={cn(
-                    "resize-none border-border bg-muted text-foreground placeholder:text-muted-foreground/50",
-                    "focus:border-slate-accent focus:ring-1 focus:ring-slate-accent/30",
-                    fieldState.error && "border-destructive"
+                    "resize-none",
+                    fieldClasses(!!fieldState.error)
                   )}
                   {...field}
                 />

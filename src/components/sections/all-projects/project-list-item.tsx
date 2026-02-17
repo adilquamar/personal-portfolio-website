@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
+import { LinkButton } from "@/components/ui/link-button";
+import { fadeInUp } from "@/lib/motion";
 
 interface ProjectListItemProps {
   project: Project;
@@ -12,9 +13,7 @@ interface ProjectListItemProps {
 export function ProjectListItem({ project, index }: ProjectListItemProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      {...fadeInUp}
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="group"
     >
@@ -42,29 +41,27 @@ export function ProjectListItem({ project, index }: ProjectListItemProps) {
         </p>
 
         {/* Action Buttons */}
-        {(project.githubUrl || project.liveUrl) && (
+        {(project.githubUrl || project.websiteUrl) && (
           <div className="flex flex-wrap gap-3">
             {project.githubUrl && (
-              <a
+              <LinkButton
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                variant="outline"
               >
                 source
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
+              </LinkButton>
             )}
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
+            {project.websiteUrl && (
+              <LinkButton
+                href={project.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                variant="outline"
               >
                 live
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
+              </LinkButton>
             )}
           </div>
         )}

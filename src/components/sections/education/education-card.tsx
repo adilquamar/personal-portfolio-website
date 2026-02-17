@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { ReactNode } from "react";
+import { fadeInUp } from "@/lib/motion";
 
 interface EducationCardProps {
   icon: LucideIcon;
@@ -19,10 +20,8 @@ export function EducationCard({
 }: EducationCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay }}
+      {...fadeInUp}
+      transition={{ ...fadeInUp.transition, delay }}
       className="rounded-2xl border border-border bg-card p-8"
     >
       <div className="mb-6 inline-flex rounded-xl border border-border bg-muted p-3">

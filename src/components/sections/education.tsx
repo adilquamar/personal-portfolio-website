@@ -4,6 +4,7 @@ import { GraduationCap, BookOpen } from "lucide-react";
 import { education, coursework } from "@/data/education";
 import { SectionShell } from "@/components/section-shell";
 import { EducationCard } from "./education/education-card";
+import { TechTag } from "@/components/ui/tech-tag";
 
 export function EducationSection() {
   return (
@@ -13,19 +14,12 @@ export function EducationSection() {
         <EducationCard icon={GraduationCap} title={education.institution}>
           <p className="mt-2 text-base text-text-body">{education.degree}</p>
           <div className="mt-5 flex flex-wrap gap-2">
-            <span className="rounded border border-border bg-muted px-2.5 py-1 text-sm font-medium text-muted-foreground">
-              {education.gpa}
-            </span>
-            <span className="rounded border border-border bg-muted px-2.5 py-1 text-sm font-medium text-muted-foreground">
-              {education.period}
-            </span>
+            <TechTag>{education.gpa}</TechTag>
+            <TechTag>{education.period}</TechTag>
             {education.honors.map((honor) => (
-              <span
-                key={honor}
-                className="rounded border border-slate-accent/30 bg-slate-accent/10 px-2.5 py-1 text-sm font-medium text-slate-dark dark:text-slate-light"
-              >
+              <TechTag key={honor} variant="accent">
                 {honor}
-              </span>
+              </TechTag>
             ))}
           </div>
         </EducationCard>

@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import type { Experience } from "@/data/experience";
+import { fadeInLeft } from "@/lib/motion";
+import { TechTagList } from "@/components/ui/tech-tag";
 
 interface ExperienceItemProps {
   experience: Experience;
@@ -12,10 +14,8 @@ interface ExperienceItemProps {
 export function ExperienceItem({ experience, index }: ExperienceItemProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.15 }}
+      {...fadeInLeft}
+      transition={{ ...fadeInLeft.transition, delay: index * 0.15 }}
       className="relative pb-12 last:pb-0"
     >
       {/* Timeline dot */}
@@ -45,16 +45,7 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
         </p>
 
         {/* Tech Tags */}
-        <div className="flex flex-wrap gap-2 pt-1">
-          {experience.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="rounded border border-border bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        <TechTagList items={experience.technologies} className="pt-1" />
       </div>
     </motion.div>
   );
