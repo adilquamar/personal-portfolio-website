@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "John Doe | Software Engineer at AWS",
+  title: "Adil Quamar | Full-stack Engineer",
   description:
     "Building scalable distributed systems and minimal, high-performance user interfaces. Software Development Engineer at AWS API Gateway.",
   keywords: [
