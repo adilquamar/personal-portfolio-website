@@ -3,50 +3,31 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  githubUrl: string;
-  liveUrl: string;
-  image: string;
+  githubUrl?: string;
+  liveUrl?: string;
+  image?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "cloudscale",
-    title: "CloudScale",
+    id: "uav-forge",
+    title: "UAV Forge — Autonomous Drone System",
     description:
-      "A serverless infrastructure automation tool that simplifies AWS deployment with one-click provisioning and monitoring.",
-    technologies: ["Go", "Terraform", "AWS"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    image: "/images/projects/cloudscale.jpg",
+      "Led a team of five engineers to develop modular computer vision software for autonomous drones competing in the AUVSI SUAS Competition. Built object detection, classification, and geolocation systems using ROS and MAVROS protocols.",
+    technologies: ["Python", "ROS", "MAVROS", "Computer Vision", "OpenCV"],
   },
   {
-    id: "algovis",
-    title: "AlgoVis",
+    id: "hackuci",
+    title: "Waitless — HackUCI",
     description:
-      "Interactive visualization of complex sorting and graph algorithms with step-by-step animation controls and complexity analysis.",
-    technologies: ["React", "D3.js", "TypeScript"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    image: "/images/projects/algovis.jpg",
+      "Engineered a mobile web app to optimize gym equipment turnover. Awarded Best Social Good Hack and Best Product Pitch out of 500+ participants at HackUCI 2022.",
+    technologies: ["Node.js", "Google Firebase", "JavaScript"],
   },
   {
-    id: "taskflow",
-    title: "TaskFlow",
+    id: "antz",
+    title: "Antz Study Groups",
     description:
-      "Real-time collaborative project management dashboard with Kanban boards, time tracking, and team analytics.",
-    technologies: ["Next.js", "Supabase", "Tailwind"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    image: "/images/projects/taskflow.jpg",
-  },
-  {
-    id: "neuronet",
-    title: "NeuroNet",
-    description:
-      "Neural network implementation from scratch in C++ with CUDA acceleration for training on custom datasets.",
-    technologies: ["C++", "CUDA", "Python"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    image: "/images/projects/neuronet.jpg",
+      "Created a web application to help students form study groups based on shared classes. Built profile creation, editing, and messaging features — enabled 130+ undergraduate students at UCI.",
+    technologies: ["HTML", "CSS", "Node.js", "JavaScript", "Google Firebase"],
   },
 ];

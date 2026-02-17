@@ -4,6 +4,7 @@ export interface Education {
   degree: string;
   gpa: string;
   period: string;
+  honors: string[];
 }
 
 export interface Coursework {
@@ -12,11 +13,12 @@ export interface Coursework {
 }
 
 export const education: Education = {
-  id: "uw",
+  id: "uci",
   institution: "University of California, Irvine",
-  degree: "B.S. in Computer Science",
-  gpa: "GPA: 3.9/4.0",
-  period: "2019 - 2023",
+  degree: "B.S. in Computer Science and Engineering",
+  gpa: "GPA: 3.88/4.0",
+  period: "2019 – 2023",
+  honors: ["Magna Cum Laude", "Dean's Honor List (All Quarters)"],
 };
 
 export const coursework: Coursework[] = [

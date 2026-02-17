@@ -28,7 +28,7 @@ const ctaButtons: CtaButton[] = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative flex items-center overflow-hidden pb-16 pt-32 lg:pt-40">
       {/* Background glow */}
       <div className="absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-cyan-5 blur-[120px] pointer-events-none" />
 
@@ -42,7 +42,7 @@ export function HeroSection() {
           {/* Status Badge */}
           <motion.div variants={item}>
             <span className="inline-flex items-center rounded-full border border-cyan-20 bg-cyan-10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan">
-              Available for hire
+              Full-stack Engineer
             </span>
           </motion.div>
 
@@ -50,7 +50,7 @@ export function HeroSection() {
           <motion.div variants={item} className="space-y-2">
             <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-[72px] lg:leading-[72px]">
               Hello, I&apos;m{" "}
-              <span className="text-text-muted">John Doe.</span>
+              <span className="text-text-muted">Adil Quamar.</span>
             </h1>
             <h2 className="text-3xl font-medium text-text-muted sm:text-4xl lg:text-[48px] lg:leading-[48px]">
               SDE at <span className="text-amber">AWS</span>.
@@ -62,9 +62,8 @@ export function HeroSection() {
             variants={item}
             className="max-w-[646px] text-lg leading-relaxed text-text-body sm:text-xl sm:leading-[32.5px]"
           >
-            Building scalable distributed systems and minimal,
-            high-performance user interfaces. Obsessed with code quality and
-            pixel-perfect design.
+            Building and scaling cloud infrastructure at AWS. Specializing in React, TypeScript, and serverless
+            architectures with a focus on intuitive developer experiences.
           </motion.p>
 
           {/* CTA Buttons */}

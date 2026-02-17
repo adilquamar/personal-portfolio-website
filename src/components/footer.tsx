@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { socialLinks } from "@/data/social";
 
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
-  twitter: Twitter,
   mail: Mail,
 };
 
@@ -15,10 +14,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-[857px] px-6 py-8 lg:px-12">
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} John Doe. All rights reserved.
-          </p>
+        <div className="flex items-center justify-center">
           <div className="flex items-center gap-5">
             {socialLinks.map((link) => {
               const Icon = iconMap[link.icon];

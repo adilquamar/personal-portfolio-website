@@ -11,28 +11,28 @@ export const experiences: Experience[] = [
   {
     id: "aws-sde",
     title: "Software Development Engineer",
-    company: "AWS",
-    period: "2023 - Present",
+    company: "Amazon Web Services (AWS)",
+    period: "Jan 2024 – Present",
     description:
-      "Architecting serverless solutions using Lambda, DynamoDB, and API Gateway. Optimized data processing pipelines reducing latency by 40%.",
-    technologies: ["Java", "TypeScript", "AWS CDK"],
+      "Engineer the Management Console for AWS API Gateway, a Tier 1 service. Led cross-console launches including MCP proxy integration with Amazon Bedrock AgentCore, dynamic routing rules (14M invocations in week one), and VPC Lattice custom domain names. Built error detection systems to improve system monitoring and reduce downtime.",
+    technologies: ["React", "TypeScript", "AWS CDK", "API Gateway", "CloudScape"],
   },
   {
-    id: "microsoft-intern",
+    id: "uav-forge",
+    title: "Computer Vision Team Lead",
+    company: "UAV Forge",
+    period: "Sep 2022 – Jun 2023",
+    description:
+      "Led a team of five engineers to develop modular software for drone object detection and geolocation using ROS and MAVROS protocols, resulting in successful payload delivery from 75ft+.",
+    technologies: ["Python", "ROS", "MAVROS", "Computer Vision"],
+  },
+  {
+    id: "amazon-intern",
     title: "SDE Intern",
-    company: "Microsoft",
-    period: "Summer 2022",
+    company: "Amazon (Lab 126)",
+    period: "Jun 2021 – Sep 2022",
     description:
-      "Contributed to the Azure DevOps team. Implemented a new CI/CD feature that improved deployment reliability for 10k+ users.",
-    technologies: ["C#", ".NET", "Azure"],
-  },
-  {
-    id: "startup-intern",
-    title: "Full Stack Intern",
-    company: "StartUp Inc",
-    period: "Summer 2021",
-    description:
-      "Built the initial MVP for a fintech product using React and Node.js. Designed the core database schema.",
-    technologies: ["React", "Node.js", "PostgreSQL"],
+      "Designed a cloud-based content freshness system using AWS SNS, SQS, and ECS/Fargate, automating real-time UI updates for Alexa multimodal devices. Developed RESTful APIs in Java to power internal feedback collection, streamlining data visualization for product teams.",
+    technologies: ["Java", "AWS SNS", "AWS SQS", "ECS/Fargate", "Docker"],
   },
 ];
