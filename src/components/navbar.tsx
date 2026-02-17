@@ -65,7 +65,7 @@ export function Navbar() {
       </motion.header>
 
       {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 px-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))] md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-50 px-4 pb-[calc(0.5rem+env(safe-area-inset-bottom))] md:hidden">
         <motion.nav
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

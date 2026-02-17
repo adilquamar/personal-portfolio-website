@@ -18,7 +18,7 @@ export function SectionShell({
   children,
 }: SectionShellProps) {
   return (
-    <section id={id} className={cn("scroll-mt-20 py-16", className)}>
+    <section id={id} className={cn("scroll-mt-20 py-10", className)}>
       <div className="mx-auto max-w-[857px] px-6 lg:px-12">
         {title && (
           <motion.div

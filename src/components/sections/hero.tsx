@@ -29,7 +29,7 @@ const ctaButtons: CtaButton[] = [
 
 export function HeroSection() {
   return (
-    <section className="relative flex items-center overflow-hidden pb-16 pt-32 lg:pt-40">
+    <section className="relative flex items-center overflow-hidden pb-10 pt-32 lg:pt-40">
       {/* Background glow */}
       <div className="absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-slate-5 blur-[120px] pointer-events-none" />
 
