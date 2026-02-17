@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { motion } from "framer-motion";
+import { Home, Briefcase, FolderKanban, GraduationCap, Info, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Experience", href: "#experience" },
@@ -13,97 +11,91 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const bottomNavLinks = [
+  { label: "Home", href: "#", icon: Home },
+  { label: "Experience", href: "#experience", icon: Briefcase },
+  { label: "Projects", href: "#projects", icon: FolderKanban },
+  { label: "Education", href: "#education", icon: GraduationCap },
+  { label: "Info", href: "#contact", icon: Info },
+];
+
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border"
-    >
-      <nav className="mx-auto flex max-w-[857px] items-center justify-between px-6 py-5 lg:px-12">
-        <a
-          href="#"
-          className="font-bold text-xl tracking-tight text-foreground"
-        >
-          Adil Quamar.
-        </a>
+    <>
+      {/* Top Header */}
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border"
+      >
+        <nav className="mx-auto flex max-w-[857px] items-center justify-between px-6 py-5 lg:px-12">
+          <a
+            href="#"
+            className="font-bold text-xl tracking-tight text-foreground"
+          >
+            Adil Quamar.
+          </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="relative p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white-5 transition-colors duration-200"
+              aria-label="Toggle theme"
             >
-              {link.label}
-            </a>
-          ))}
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="relative p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white-5 transition-colors duration-200"
-            aria-label="Toggle theme"
-          >
-            <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute inset-0 m-auto h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          </button>
-        </div>
+              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute inset-0 m-auto h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            </button>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="relative p-2 rounded-lg text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="Toggle theme"
-          >
-            <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute inset-0 m-auto h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          </button>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </nav>
+          {/* Mobile Theme Toggle */}
+          <div className="flex items-center md:hidden">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="relative p-2 rounded-lg text-muted-foreground hover:text-foreground transition-colors duration-200"
+              aria-label="Toggle theme"
+            >
+              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute inset-0 m-auto h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            </button>
+          </div>
+        </nav>
+      </motion.header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-border overflow-hidden"
-          >
-            <div className="flex flex-col gap-1 px-6 py-4">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => setIsOpen(false)}
-                  className={cn(
-                    "text-sm font-medium text-muted-foreground hover:text-foreground",
-                    "py-3 px-3 rounded-lg hover:bg-white-5 transition-colors duration-200"
-                  )}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+      {/* Mobile Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden px-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
+        <motion.nav
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          className="rounded-2xl backdrop-blur-xl bg-white-5 border border-white-10 shadow-[0_0_30px_rgba(0,0,0,0.3)]"
+        >
+          <div className="flex items-center justify-around px-2 py-2">
+            {bottomNavLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="flex flex-col items-center gap-0.5 px-4 py-0.5 text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                <link.icon className="h-[18px] w-[18px]" />
+                <span className="text-[10px] font-medium">{link.label}</span>
+              </a>
+            ))}
+          </div>
+        </motion.nav>
+      </div>
+    </>
   );
 }
