@@ -8,6 +8,7 @@ export interface CtaButton {
   href: string;
   variant: "primary" | "secondary";
   icon?: LucideIcon;
+  download?: boolean;
 }
 
 interface HeroCtaProps {
@@ -17,7 +18,7 @@ interface HeroCtaProps {
 
 export function HeroCta({ buttons, variants }: HeroCtaProps) {
   return (
-    <motion.div variants={variants} className="flex flex-wrap gap-4">
+    <motion.div variants={variants} className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
       {buttons.map((button) => {
         const Icon = button.icon;
 
@@ -26,6 +27,7 @@ export function HeroCta({ buttons, variants }: HeroCtaProps) {
             <a
               key={button.label}
               href={button.href}
+              download={button.download}
               className="inline-flex items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-base font-medium text-background transition-all duration-200 hover:opacity-90 hover:gap-3"
             >
               {button.label}
@@ -38,10 +40,11 @@ export function HeroCta({ buttons, variants }: HeroCtaProps) {
           <a
             key={button.label}
             href={button.href}
-            className="inline-flex items-center rounded-lg border border-white-20 px-6 py-3 text-base font-medium text-foreground transition-colors duration-200 hover:bg-white-5"
+            download={button.download}
+            className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-base font-medium text-foreground transition-colors duration-200 hover:bg-muted"
           >
+            {Icon && <Icon className="h-[18px] w-[18px]" />}
             {button.label}
-            {Icon && <Icon className="ml-2 h-[18px] w-[18px]" />}
           </a>
         );
       })}

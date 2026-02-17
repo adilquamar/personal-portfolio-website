@@ -57,8 +57,8 @@ export function ContactForm() {
                 <Input
                   placeholder="Your name"
                   className={cn(
-                    "border-white-10 bg-white-5 text-foreground placeholder:text-text-body/50",
-                    "focus:border-cyan focus:ring-1 focus:ring-cyan/30",
+                    "border-border bg-muted text-foreground placeholder:text-muted-foreground/50",
+                    "focus:border-slate-accent focus:ring-1 focus:ring-slate-accent/30",
                     fieldState.error && "border-destructive"
                   )}
                   {...field}
@@ -83,8 +83,8 @@ export function ContactForm() {
                   type="email"
                   placeholder="your@email.com"
                   className={cn(
-                    "border-white-10 bg-white-5 text-foreground placeholder:text-text-body/50",
-                    "focus:border-cyan focus:ring-1 focus:ring-cyan/30",
+                    "border-border bg-muted text-foreground placeholder:text-muted-foreground/50",
+                    "focus:border-slate-accent focus:ring-1 focus:ring-slate-accent/30",
                     fieldState.error && "border-destructive"
                   )}
                   {...field}
@@ -109,8 +109,8 @@ export function ContactForm() {
                   placeholder="Tell me about your project..."
                   rows={5}
                   className={cn(
-                    "resize-none border-white-10 bg-white-5 text-foreground placeholder:text-text-body/50",
-                    "focus:border-cyan focus:ring-1 focus:ring-cyan/30",
+                    "resize-none border-border bg-muted text-foreground placeholder:text-muted-foreground/50",
+                    "focus:border-slate-accent focus:ring-1 focus:ring-slate-accent/30",
                     fieldState.error && "border-destructive"
                   )}
                   {...field}
@@ -126,8 +126,8 @@ export function ContactForm() {
           type="submit"
           disabled={isSubmitting || isSubmitted}
           className={cn(
-            "w-full rounded-lg bg-cyan py-3 font-medium text-dark transition-all duration-200",
-            "hover:bg-cyan/90 disabled:opacity-60"
+            "w-full rounded-lg bg-slate-accent py-3 font-medium text-white transition-all duration-200",
+            "hover:bg-slate-dark disabled:opacity-60"
           )}
         >
           {isSubmitting ? (

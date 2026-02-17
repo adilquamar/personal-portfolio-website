@@ -28,7 +28,9 @@ alwaysApply: false
 ## Theme-Aware vs Static Colors
 
 - **Theme-aware** (adapts): `text-foreground`, `bg-background`, `bg-card`, `border-border`, `text-muted-foreground`
-- **Static** (same in both): `text-cyan`, `bg-cyan`, `text-amber`, `text-text-body`, `bg-white-5`, `border-white-10`
+- **Static accent**: `bg-slate-accent` (same in both modes)
+- **Adaptive accent text**: Use `text-slate-dark dark:text-slate-light` for accent text that adapts
+- **AWS brand**: `text-amber` (reserved for AWS highlight only)
 
 ## Rules
 

@@ -80,7 +80,7 @@ export function Navbar() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="rounded-2xl backdrop-blur-xl bg-white-5 border border-white-10 shadow-[0_0_30px_rgba(0,0,0,0.3)]"
+          className="rounded-2xl backdrop-blur-xl bg-card/80 border border-border shadow-lg"
         >
           <div className="flex items-center justify-around px-2 py-2">
             {bottomNavLinks.map((link) => (

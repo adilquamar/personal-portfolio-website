@@ -17,18 +17,18 @@ The CSS file loads the config via `@config "../../tailwind.config.ts"`.
 
 | Tailwind Class | Hex / Value | Usage |
 |---|---|---|
-| `cyan` | `#00d3f3` | Primary accent, links, timeline dots, CTA buttons |
-| `cyan-bright` | `#00b8db` | "Say Hello" button variant |
-| `cyan-80` | `rgba(0,211,243,0.8)` | Date text in experience timeline |
-| `cyan-20` | `rgba(0,211,243,0.2)` | Status badge border |
-| `cyan-10` | `rgba(0,211,243,0.1)` | Status badge background |
-| `cyan-5` | `rgba(0,184,219,0.05)` | Hero background glow |
+| `slate-accent` | `#64748b` | Primary accent, links, timeline dots, CTA buttons |
+| `slate-light` | `#94a3b8` | Lighter variant for dark mode text |
+| `slate-dark` | `#475569` | Darker variant for light mode, hover states |
+| `slate-80` | `rgba(100,116,139,0.8)` | Date text in experience timeline |
+| `slate-20` | `rgba(100,116,139,0.2)` | Status badge border |
+| `slate-10` | `rgba(100,116,139,0.1)` | Status badge background |
+| `slate-5` | `rgba(100,116,139,0.05)` | Hero background glow |
 | `amber` | `#ff9900` | AWS brand highlight only |
 | `dark` | `#121212` | Page background (dark mode) |
 | `dark-card` | `#1a1a1a` | Card surfaces |
 | `dark-elevated` | `#1e1e1e` | Raised surfaces |
 | `dark-deep` | `#0a0a0a` | Footer background |
-| `white-alpha-5/10/15/20` | `rgba(255,255,255,…)` | Borders, tag backgrounds, hovers |
 | `text-muted` | `#99a1af` | Secondary headings, subtitles |
 | `text-body` | `#6a7282` | Body paragraphs, descriptions |
 | `text-tag` | `#d1d5dc` | Technology tag labels |
@@ -47,13 +47,13 @@ The CSS file loads the config via `@config "../../tailwind.config.ts"`.
 | `card-padding` | `32px` | Card internal padding |
 | `timeline-indent` | `48px` | Timeline content indent from dot |
 
-## Shadows (from Figma effects)
+## Shadows
 
 | Class | Value | Usage |
 |---|---|---|
-| `shadow-glow-cyan` | `0 0 0 3px rgba(0,211,243,0.1)` | Timeline dot outer glow |
-| `shadow-glow-cyan-lg` | `0 0 60px rgba(0,211,243,0.15)` | Card hover glow |
-| `shadow-glow-hero` | `0 0 120px rgba(0,184,219,0.05)` | Hero background orb |
+| `shadow-glow-accent` | `0 0 0 3px rgba(100,116,139,0.1)` | Timeline dot outer glow |
+| `shadow-glow-accent-lg` | `0 0 60px rgba(100,116,139,0.15)` | Card hover glow |
+| `shadow-glow-hero` | `0 0 120px rgba(100,116,139,0.05)` | Hero background orb |
 
 ## Typography Scale (from Figma text nodes)
 
@@ -75,4 +75,5 @@ Use the named `fontSize` tokens from `tailwind.config.ts`:
 - Never use raw hex colors inline; always use Tailwind token classes
 - `amber` is reserved exclusively for the "AWS" brand highlight
 - For new spacing values, add to `tailwind.config.ts` — not as arbitrary `[px]` values
-- Section headings use a cyan bar prefix: `<div className="h-[2px] w-8 bg-cyan" />`
+- Section headings use a slate accent bar prefix: `<div className="h-[2px] w-8 bg-slate-accent" />`
+- Use `slate-dark` for light mode accent text, `slate-light` for dark mode (e.g., `text-slate-dark dark:text-slate-light`)

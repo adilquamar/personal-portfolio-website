@@ -14,13 +14,14 @@
    * COLORS — extracted from Figma fills & strokes
    * ──────────────────────────────────────────── */
 
-  /* Cyan accent scale */
-  --color-cyan: #00d3f3;
-  --color-cyan-bright: #00b8db;
-  --color-cyan-80: rgba(0, 211, 243, 0.8);
-  --color-cyan-20: rgba(0, 211, 243, 0.2);
-  --color-cyan-10: rgba(0, 211, 243, 0.1);
-  --color-cyan-5: rgba(0, 184, 219, 0.05);
+  /* Slate accent scale */
+  --color-slate-accent: #64748b;
+  --color-slate-light: #94a3b8;
+  --color-slate-dark: #475569;
+  --color-slate-80: rgba(100, 116, 139, 0.8);
+  --color-slate-20: rgba(100, 116, 139, 0.2);
+  --color-slate-10: rgba(100, 116, 139, 0.1);
+  --color-slate-5: rgba(100, 116, 139, 0.05);
 
   /* Amber (AWS brand) */
   --color-amber: #ff9900;
@@ -80,9 +81,9 @@
   /* ────────────────────────────────────────────
    * SHADOWS — extracted from Figma effects
    * ──────────────────────────────────────────── */
-  --shadow-glow-cyan: 0 0 0 3px rgba(0, 211, 243, 0.1);
-  --shadow-glow-cyan-lg: 0 0 60px rgba(0, 211, 243, 0.15);
-  --shadow-glow-hero: 0 0 120px rgba(0, 184, 219, 0.05);
+  --shadow-glow-accent: 0 0 0 3px rgba(100, 116, 139, 0.1);
+  --shadow-glow-accent-lg: 0 0 60px rgba(100, 116, 139, 0.15);
+  --shadow-glow-hero: 0 0 120px rgba(100, 116, 139, 0.05);
 
   /* ────────────────────────────────────────────
    * Shadcn tokens
@@ -139,12 +140,12 @@
   --secondary-foreground: #121212;
   --muted: #f5f5f5;
   --muted-foreground: #6a7282;
-  --accent: #00d3f3;
-  --accent-foreground: #121212;
+  --accent: #64748b;
+  --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --border: #e5e7eb;
   --input: #e5e7eb;
-  --ring: #00d3f3;
+  --ring: #64748b;
 }
 
 .dark {
@@ -160,12 +161,12 @@
   --secondary-foreground: #ffffff;
   --muted: #1a1a1a;
   --muted-foreground: #99a1af;
-  --accent: #00d3f3;
+  --accent: #94a3b8;
   --accent-foreground: #121212;
   --destructive: #ef4444;
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.15);
-  --ring: #00d3f3;
+  --ring: #94a3b8;
 }
 
 @layer base {

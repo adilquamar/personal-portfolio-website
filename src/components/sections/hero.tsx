@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { HeroCta, CtaButton } from "./hero/hero-cta";
 
 const container = {
@@ -24,13 +24,14 @@ const item = {
 const ctaButtons: CtaButton[] = [
   { label: "View Projects", href: "#projects", variant: "primary", icon: ArrowRight },
   { label: "Contact Me", href: "#contact", variant: "secondary" },
+  { label: "Resume", href: "/resume.pdf", variant: "secondary", icon: Download, download: true },
 ];
 
 export function HeroSection() {
   return (
     <section className="relative flex items-center overflow-hidden pb-16 pt-32 lg:pt-40">
       {/* Background glow */}
-      <div className="absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-cyan-5 blur-[120px] pointer-events-none" />
+      <div className="absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-slate-5 blur-[120px] pointer-events-none" />
 
       <div className="mx-auto w-full max-w-[857px] px-6 lg:px-12">
         <motion.div
@@ -41,7 +42,7 @@ export function HeroSection() {
         >
           {/* Status Badge */}
           <motion.div variants={item}>
-            <span className="inline-flex items-center rounded-full border border-cyan-20 bg-cyan-10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan">
+            <span className="inline-flex items-center rounded-full border border-slate-20 bg-slate-10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-dark dark:text-slate-light">
               Full-stack Engineer
             </span>
           </motion.div>

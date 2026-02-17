@@ -13,16 +13,16 @@ export function EducationSection() {
         <EducationCard icon={GraduationCap} title={education.institution}>
           <p className="mt-2 text-base text-text-body">{education.degree}</p>
           <div className="mt-5 flex flex-wrap gap-2">
-            <span className="rounded border border-white-5 bg-white-5 px-2.5 py-1 text-sm font-medium text-text-tag">
+            <span className="rounded border border-border bg-muted px-2.5 py-1 text-sm font-medium text-muted-foreground">
               {education.gpa}
             </span>
-            <span className="rounded border border-white-5 bg-white-5 px-2.5 py-1 text-sm font-medium text-text-muted">
+            <span className="rounded border border-border bg-muted px-2.5 py-1 text-sm font-medium text-muted-foreground">
               {education.period}
             </span>
             {education.honors.map((honor) => (
               <span
                 key={honor}
-                className="rounded border border-white-5 bg-white-5 px-2.5 py-1 text-sm font-medium text-cyan-80"
+                className="rounded border border-slate-accent/30 bg-slate-accent/10 px-2.5 py-1 text-sm font-medium text-slate-dark dark:text-slate-light"
               >
                 {honor}
               </span>
@@ -38,7 +38,7 @@ export function EducationSection() {
                 key={course.id}
                 className="flex items-center gap-3 text-sm text-text-body"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-accent" />
                 {course.name}
               </li>
             ))}

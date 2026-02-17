@@ -27,7 +27,7 @@ export function SectionShell({
             transition={{ duration: 0.5 }}
             className="mb-12 flex items-center gap-3"
           >
-            <div className="h-[2px] w-8 bg-cyan" />
+            <div className="h-[2px] w-8 bg-slate-accent" />
             <h2 className="text-3xl font-bold text-foreground lg:text-4xl">
               {title}
             </h2>

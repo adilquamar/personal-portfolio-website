@@ -26,10 +26,10 @@ export function ContactSection() {
           className="flex flex-col justify-center"
         >
           <h2 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-[48px] lg:leading-[48px]">
-            CTA Header
+            Contact me
           </h2>
           <p className="mt-5 text-base leading-relaxed text-text-body sm:text-lg">
-            Contact description.
+            If you would like to get in touch, please use the form or contact me through the links below.
           </p>
           <div className="mt-8 flex items-center gap-5">
             {socialLinks.map((link) => {
@@ -42,7 +42,7 @@ export function ContactSection() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="rounded-lg border border-white-10 p-2.5 text-muted-foreground transition-colors hover:border-white-20 hover:text-foreground"
+                  className="rounded-lg border border-border p-2.5 text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
                   aria-label={link.name}
                 >
                   <Icon className="h-5 w-5" />
@@ -58,7 +58,7 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="rounded-2xl border border-white-5 bg-card p-6 sm:p-8"
+          className="rounded-2xl border border-border bg-card p-6 sm:p-8"
         >
           <ContactForm />
         </motion.div>

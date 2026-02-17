@@ -19,7 +19,7 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
       className="relative pb-12 last:pb-0"
     >
       {/* Timeline dot */}
-      <div className="absolute -left-[45px] top-2 h-2.5 w-2.5 rounded-full border border-background bg-cyan shadow-[0_0_0_3px_rgba(0,211,243,0.1)]" />
+      <div className="absolute -left-[45px] top-2 h-2.5 w-2.5 rounded-full border border-background bg-slate-accent shadow-[0_0_0_3px_rgba(100,116,139,0.1)]" />
 
       {/* Content */}
       <div className="space-y-3">
@@ -28,7 +28,7 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
           <h3 className="text-xl font-bold text-foreground">
             {experience.title}
           </h3>
-          <div className="flex items-center gap-1.5 text-sm font-medium text-cyan-80">
+          <div className="flex items-center gap-1.5 text-sm font-medium text-slate-accent dark:text-slate-light">
             <Calendar className="h-3.5 w-3.5" />
             <span>{experience.period}</span>
           </div>
@@ -49,7 +49,7 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
           {experience.technologies.map((tech) => (
             <span
               key={tech}
-              className="rounded border border-white-5 bg-white-5 px-2 py-1 text-xs font-medium text-text-tag"
+              className="rounded border border-border bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
             >
               {tech}
             </span>
