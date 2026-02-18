@@ -10,11 +10,7 @@ export function AboutSection() {
     <SectionShell id="about" title="About Me">
       <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12">
         {/* Photo */}
-        <motion.div
-          {...fadeInUp}
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex-shrink-0"
-        >
+        <motion.div {...fadeInUp} className="flex-shrink-0">
           <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-2xl border border-border lg:mx-0 lg:h-72 lg:w-72">
             <Image
               src="/headshot.png"
@@ -32,7 +28,6 @@ export function AboutSection() {
         {/* Content */}
         <motion.div
           {...fadeInUp}
-          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex flex-col gap-6"
         >

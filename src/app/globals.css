@@ -40,7 +40,7 @@
 
   /* Text hierarchy */
   --color-text-muted: #99a1af;
-  --color-text-body: #6a7282;
+  --color-text-body: var(--text-body);
   --color-text-tag: #d1d5dc;
   --color-text-faint: #4a5565;
 
@@ -128,6 +128,7 @@
 
 :root {
   --radius: 0.625rem;
+  --text-body: #6a7282;
   --background: #ffffff;
   --foreground: #121212;
   --card: #ffffff;
@@ -149,6 +150,7 @@
 }
 
 .dark {
+  --text-body: #99a1af;
   --background: #121212;
   --foreground: #ffffff;
   --card: #1a1a1a;

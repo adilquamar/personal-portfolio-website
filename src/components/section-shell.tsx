@@ -21,11 +21,7 @@ export function SectionShell({
     <section id={id} className={cn("scroll-mt-20 py-10", className)}>
       <div className="mx-auto max-w-[857px] px-6 lg:px-12">
         {title && (
-          <motion.div
-            {...fadeInUp}
-            viewport={{ once: true, margin: "-100px" }}
-            className="mb-12 flex items-center gap-3"
-          >
+          <motion.div {...fadeInUp} className="mb-12 flex items-center gap-3">
             <div className="h-[2px] w-8 bg-slate-accent" />
             <h2 className="text-3xl font-bold text-foreground lg:text-4xl">
               {title}
