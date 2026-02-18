@@ -17,7 +17,7 @@ export function ProjectListItem({ project, index }: ProjectListItemProps) {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="group"
     >
-      <div className="py-6 sm:py-8 first:pt-0 group-last:pb-0">
+      <div className="py-6 sm:py-8 group-last:pb-0">
         {/* Tech Stack */}
         <div className="mb-3 flex flex-wrap gap-x-2 gap-y-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
           {project.technologies.slice(0, 4).map((tech, i) => (
