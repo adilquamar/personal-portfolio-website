@@ -13,7 +13,7 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "frameworks",
     name: "Frameworks & Libraries",
-    skills: ["React", "Node.js", "Express", "Redux", "Google Firebase"],
+    skills: ["React", "Node.js", "Express", "Redux", "Google Firebase", "OpenCV"],
   },
   {
     id: "cloud",
@@ -32,6 +32,6 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "tools",
     name: "Tools",
-    skills: ["Git", "Docker", "ROS", "MAVROS", "Unix/Linux", "CloudWatch", "CloudScape"],
+    skills: ["Git", "Docker", "ROS", "MAVROS", "Unix/Linux", "CloudWatch", "CloudScape", "Cursor", "Kiro"],
   },
 ];

@@ -5,6 +5,7 @@ import {
   Home,
   Briefcase,
   FolderKanban,
+  Layers,
   GraduationCap,
   Info,
 } from "lucide-react";
@@ -13,6 +14,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Stack", href: "#stack" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -21,6 +23,7 @@ const bottomNavLinks = [
   { label: "Home", href: "#", icon: Home },
   { label: "Experience", href: "#experience", icon: Briefcase },
   { label: "Projects", href: "#projects", icon: FolderKanban },
+  { label: "Stack", href: "#stack", icon: Layers },
   { label: "Education", href: "#education", icon: GraduationCap },
   { label: "Info", href: "#contact", icon: Info },
 ];
